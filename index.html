@@ -7,27 +7,15 @@
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 :root {
-  --bg: #FAF8F4;
-  --bg2: #F2EDE6;
-  --card: #FFFFFF;
-  --accent: #C49A6C;
-  --accent2: #EDD5B0;
-  --accent3: #7A5C42;
-  --text: #3D3530;
-  --text2: #7A6A5A;
-  --text3: #B0A090;
-  --border: #E8DDD0;
-  --farida: #EDD5B0;
-  --farida-text: #7A5230;
-  --amina: #D0E5D0;
-  --amina-text: #3A6A3A;
-  --green: #EDF3ED;
-  --green-text: #5A7A5A;
+  --bg: #FAF8F4; --bg2: #F2EDE6; --card: #FFFFFF;
+  --accent: #C49A6C; --accent2: #EDD5B0; --accent3: #7A5C42;
+  --text: #3D3530; --text2: #7A6A5A; --text3: #B0A090; --border: #E8DDD0;
+  --farida: #EDD5B0; --farida-text: #7A5230;
+  --amina: #D0E5D0; --amina-text: #3A6A3A;
+  --green: #EDF3ED; --green-text: #5A7A5A;
 }
 html, body { height: 100%; background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); }
 body { display: flex; flex-direction: column; max-width: 480px; margin: 0 auto; }
-
-/* Header */
 .header { background: var(--bg); padding: 16px 16px 0; flex-shrink: 0; }
 .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
 .header-title { font-size: 20px; font-weight: 600; color: var(--text); }
@@ -39,18 +27,12 @@ body { display: flex; flex-direction: column; max-width: 480px; margin: 0 auto; 
 .mursia-bar { background: #FFF6EE; border: 0.5px solid var(--accent2); border-radius: 12px; padding: 10px 12px; display: flex; gap: 10px; align-items: center; margin-bottom: 12px; cursor: pointer; }
 .mursia-cat { width: 28px; height: 28px; background: var(--accent2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
 .mursia-text { font-size: 12px; color: #8A7060; font-style: italic; line-height: 1.4; }
-
-/* Tabs */
 .tabs { display: flex; border-bottom: 0.5px solid var(--border); margin: 0 -16px; padding: 0 16px; overflow-x: auto; scrollbar-width: none; }
 .tabs::-webkit-scrollbar { display: none; }
 .tab { font-size: 13px; padding: 10px 0; margin-right: 20px; color: var(--text3); border-bottom: 2px solid transparent; white-space: nowrap; cursor: pointer; flex-shrink: 0; transition: all 0.2s; }
 .tab.active { color: var(--accent3); border-bottom: 2px solid var(--accent); font-weight: 500; }
-
-/* Feed */
 .feed { flex: 1; overflow-y: auto; padding: 14px 16px 100px; display: flex; flex-direction: column; gap: 10px; }
 .feed::-webkit-scrollbar { display: none; }
-
-/* Card */
 .card { background: var(--card); border: 0.5px solid var(--border); border-radius: 16px; padding: 14px; animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
@@ -69,199 +51,175 @@ body { display: flex; flex-direction: column; max-width: 480px; margin: 0 auto; 
 .tag-to { background: var(--green); color: var(--green-text); }
 .tag-private { background: #EEE8F5; color: #7A5A9A; }
 .mursia-comment { background: #FFF6EE; border-radius: 8px; padding: 6px 10px; font-size: 11px; color: #9A7A5A; font-style: italic; display: flex; gap: 6px; margin-top: 6px; }
-.reactions { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+.reactions { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; align-items: center; }
 .reaction { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 8px; padding: 3px 8px; font-size: 11px; color: var(--text2); cursor: pointer; transition: all 0.15s; }
 .reaction:hover, .reaction.active { background: var(--accent2); border-color: var(--accent); }
+.card-actions { display: flex; gap: 8px; margin-top: 8px; }
+.card-action-btn { background: none; border: 0.5px solid var(--border); border-radius: 8px; padding: 4px 10px; font-size: 11px; color: var(--text3); cursor: pointer; font-family: inherit; transition: all 0.15s; }
+.card-action-btn:hover { border-color: var(--accent); color: var(--accent3); }
 
-/* Sections grid */
+/* Replies */
+.replies { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.reply { background: var(--bg2); border-radius: 10px; padding: 8px 10px; border-left: 3px solid var(--accent2); }
+.reply-who { font-size: 11px; font-weight: 500; color: var(--accent3); margin-bottom: 3px; }
+.reply-text { font-size: 12px; color: var(--text2); line-height: 1.4; }
+
 .sections { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 16px 14px; }
 .section-card { background: var(--card); border: 0.5px solid var(--border); border-radius: 14px; padding: 12px; cursor: pointer; transition: all 0.2s; }
 .section-card:hover { border-color: var(--accent); }
 .sec-icon { font-size: 20px; margin-bottom: 5px; }
 .sec-title { font-size: 13px; font-weight: 500; color: var(--text); }
 .sec-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
-
-/* Add button */
-.add-btn { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--accent); border: none; border-radius: 28px; padding: 14px 28px; display: flex; align-items: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 20px rgba(196, 154, 108, 0.4); transition: all 0.2s; z-index: 100; max-width: calc(480px - 32px); width: calc(100% - 32px); justify-content: center; }
-.add-btn:hover { background: var(--accent3); transform: translateX(-50%) translateY(-2px); }
+.add-btn { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--accent); border: none; border-radius: 28px; padding: 14px 28px; display: flex; align-items: center; gap: 10px; cursor: pointer; box-shadow: 0 4px 20px rgba(196,154,108,0.4); transition: all 0.2s; z-index: 100; max-width: calc(480px - 32px); width: calc(100% - 32px); justify-content: center; }
+.add-btn:hover { background: var(--accent3); }
 .add-icon { width: 28px; height: 28px; background: rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 300; flex-shrink: 0; }
 .add-text { font-size: 15px; color: white; font-weight: 500; }
-
-/* Modal */
-.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(61,53,48,0.5); z-index: 200; align-items: flex-end; justify-content: center; max-width: 480px; margin: 0 auto; }
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(61,53,48,0.5); z-index: 200; align-items: flex-end; justify-content: center; max-width: 480px; margin: 0 auto; left: 50%; transform: translateX(-50%); width: 100%; }
 .modal-overlay.open { display: flex; }
 .modal { background: var(--bg); border-radius: 24px 24px 0 0; padding: 20px 16px 40px; width: 100%; max-height: 90vh; overflow-y: auto; animation: slideUp 0.3s ease; }
 @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-.modal-title { font-size: 17px; font-weight: 500; color: var(--text); margin-bottom: 16px; }
-.modal-close { float: right; background: var(--bg2); border: none; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; font-size: 14px; color: var(--text2); display: flex; align-items: center; justify-content: center; }
-.form-label { font-size: 12px; color: var(--text3); margin-bottom: 6px; display: block; }
-.form-textarea { width: 100%; background: var(--card); border: 0.5px solid var(--border); border-radius: 12px; padding: 12px; font-size: 14px; font-family: inherit; color: var(--text); resize: none; outline: none; margin-bottom: 14px; min-height: 100px; }
+.modal-title { font-size: 17px; font-weight: 500; color: var(--text); }
+.modal-close { background: var(--bg2); border: none; border-radius: 50%; width: 28px; height: 28px; cursor: pointer; font-size: 14px; color: var(--text2); display: flex; align-items: center; justify-content: center; }
+.form-label { font-size: 12px; color: var(--text3); margin-bottom: 6px; display: block; margin-top: 14px; }
+.form-textarea { width: 100%; background: var(--card); border: 0.5px solid var(--border); border-radius: 12px; padding: 12px; font-size: 14px; font-family: inherit; color: var(--text); resize: none; outline: none; min-height: 100px; }
 .form-textarea:focus { border-color: var(--accent); }
-.mood-picker { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.mood-picker { display: flex; gap: 10px; flex-wrap: wrap; }
 .mood-btn { width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; background: var(--bg2); cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
 .mood-btn.selected { border-color: var(--accent); background: #FFF6EE; }
-.tag-picker { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.tag-picker { display: flex; gap: 8px; flex-wrap: wrap; }
 .tag-btn { border: 0.5px solid var(--border); border-radius: 10px; padding: 6px 12px; font-size: 12px; color: var(--text2); background: var(--card); cursor: pointer; transition: all 0.15s; }
 .tag-btn.selected { background: var(--accent2); border-color: var(--accent); color: var(--accent3); }
-.to-picker { display: flex; gap: 8px; margin-bottom: 16px; }
+.to-picker { display: flex; gap: 8px; }
 .to-btn { flex: 1; border: 0.5px solid var(--border); border-radius: 12px; padding: 10px; text-align: center; cursor: pointer; background: var(--card); transition: all 0.15s; }
 .to-btn.selected { background: var(--green); border-color: #5A7A5A; }
 .to-name { font-size: 13px; font-weight: 500; color: var(--text); }
 .to-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
-.save-btn { width: 100%; background: var(--accent); border: none; border-radius: 14px; padding: 14px; font-size: 15px; font-weight: 500; color: white; cursor: pointer; font-family: inherit; }
+.save-btn { width: 100%; background: var(--accent); border: none; border-radius: 14px; padding: 14px; font-size: 15px; font-weight: 500; color: white; cursor: pointer; font-family: inherit; margin-top: 16px; }
 .save-btn:hover { background: var(--accent3); }
-
-/* Empty state */
+.notify-btn { width: 100%; background: var(--green); border: 0.5px solid #5A7A5A; border-radius: 14px; padding: 12px; font-size: 14px; font-weight: 500; color: var(--green-text); cursor: pointer; font-family: inherit; margin-top: 8px; }
 .empty { text-align: center; padding: 40px 20px; color: var(--text3); }
 .empty-icon { font-size: 40px; margin-bottom: 12px; }
 .empty-text { font-size: 14px; }
-
-/* Section views */
-.section-view { display: none; }
-.section-view.active { display: block; }
 .back-btn { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--accent3); font-size: 14px; cursor: pointer; padding: 12px 16px; font-family: inherit; }
-.wish-item, .song-item, .date-item { background: var(--card); border: 0.5px solid var(--border); border-radius: 12px; padding: 12px 14px; margin: 0 16px 8px; display: flex; align-items: center; gap: 10px; }
+.wish-item { background: var(--card); border: 0.5px solid var(--border); border-radius: 12px; padding: 12px 14px; margin: 0 16px 8px; display: flex; align-items: center; gap: 10px; }
 .wish-ico { font-size: 18px; flex-shrink: 0; }
 .wish-text { font-size: 13px; color: var(--text); flex: 1; }
 .wish-who { font-size: 11px; color: var(--text3); }
-.add-item-btn { margin: 8px 16px; background: var(--bg2); border: 0.5px dashed var(--border); border-radius: 12px; padding: 12px; text-align: center; font-size: 13px; color: var(--text3); cursor: pointer; }
-
-/* Mood calendar */
 .mood-cal { padding: 0 16px; }
 .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 10px; }
 .cal-day { aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; background: var(--bg2); }
 .cal-day.has-mood { background: #FFF6EE; }
-
-/* Toast */
-.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: var(--accent3); color: white; padding: 10px 20px; border-radius: 20px; font-size: 13px; z-index: 300; display: none; animation: fadeIn 0.3s ease; max-width: 90%; text-align: center; }
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: var(--accent3); color: white; padding: 10px 20px; border-radius: 20px; font-size: 13px; z-index: 300; display: none; max-width: 90%; text-align: center; }
 </style>
 </head>
 <body>
-
 <div class="toast" id="toast"></div>
 
-<!-- Main view -->
 <div id="main-view">
   <div class="header">
     <div class="header-top">
       <span class="header-title">наш дневник</span>
-      <span class="days-badge" id="days-count">247 дней дружбы</span>
+      <span class="days-badge" id="days-count">загрузка...</span>
     </div>
     <div class="stats">
       <div class="stat"><div class="stat-n" id="total-count">0</div><div class="stat-l">записей</div></div>
       <div class="stat"><div class="stat-n" id="letters-count">0</div><div class="stat-l">друг другу</div></div>
       <div class="stat"><div class="stat-n" id="week-vibe">🌸</div><div class="stat-l">вайб недели</div></div>
     </div>
-    <div class="mursia-bar" onclick="getMursiaComment()">
+    <div class="mursia-bar" onclick="getMursiaQuote()">
       <div class="mursia-cat">🐱</div>
-      <div class="mursia-text" id="mursia-main">нажми чтобы мурся что-нибудь сказала</div>
+      <div class="mursia-text" id="mursia-main">нажми — мурся что-нибудь скажет</div>
     </div>
-    <div class="tabs" id="tabs">
-      <div class="tab active" onclick="switchTab('all', this)">все</div>
-      <div class="tab" onclick="switchTab('farida', this)">мои</div>
-      <div class="tab" onclick="switchTab('amina', this)">амина</div>
-      <div class="tab" onclick="switchTab('important', this)">важное</div>
-      <div class="tab" onclick="switchTab('calendar', this)">календарь</div>
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('all',this)">все</div>
+      <div class="tab" onclick="switchTab('farida',this)">мои</div>
+      <div class="tab" onclick="switchTab('amina',this)">амина</div>
+      <div class="tab" onclick="switchTab('important',this)">важное</div>
+      <div class="tab" onclick="switchTab('calendar',this)">календарь</div>
     </div>
   </div>
-
   <div class="feed" id="feed"></div>
-
   <div class="sections" id="sections-grid">
-    <div class="section-card" onclick="showSection('wishes')">
-      <div class="sec-icon">🌿</div>
-      <div class="sec-title">список желаний</div>
-      <div class="sec-sub" id="wishes-count">загрузка...</div>
-    </div>
-    <div class="section-card" onclick="showSection('playlist')">
-      <div class="sec-icon">🎵</div>
-      <div class="sec-title">плейлист</div>
-      <div class="sec-sub" id="playlist-count">загрузка...</div>
-    </div>
-    <div class="section-card" onclick="showSection('dates')">
-      <div class="sec-icon">📅</div>
-      <div class="sec-title">наши даты</div>
-      <div class="sec-sub" id="dates-count">загрузка...</div>
-    </div>
-    <div class="section-card" onclick="showSection('private')">
-      <div class="sec-icon">🔒</div>
-      <div class="sec-title">моё личное</div>
-      <div class="sec-sub">только для меня</div>
-    </div>
+    <div class="section-card" onclick="showSection('wishes')"><div class="sec-icon">🌿</div><div class="sec-title">список желаний</div><div class="sec-sub" id="wishes-count">...</div></div>
+    <div class="section-card" onclick="showSection('playlist')"><div class="sec-icon">🎵</div><div class="sec-title">плейлист</div><div class="sec-sub" id="playlist-count">...</div></div>
+    <div class="section-card" onclick="showSection('dates')"><div class="sec-icon">📅</div><div class="sec-title">наши даты</div><div class="sec-sub" id="dates-count">...</div></div>
+    <div class="section-card" onclick="showSection('private')"><div class="sec-icon">🔒</div><div class="sec-title">моё личное</div><div class="sec-sub">только для меня</div></div>
   </div>
-
-  <button class="add-btn" onclick="openModal()">
-    <div class="add-icon">+</div>
-    <span class="add-text">новая запись</span>
-  </button>
+  <button class="add-btn" onclick="openModal()"><div class="add-icon">+</div><span class="add-text">новая запись</span></button>
 </div>
 
-<!-- Section views -->
-<div id="section-view" style="display:none; flex-direction:column; height:100%;">
+<div id="section-view" style="display:none;flex-direction:column;height:100%;">
   <button class="back-btn" onclick="hideSection()">← назад</button>
   <div id="section-content" style="flex:1;overflow-y:auto;padding-bottom:80px;"></div>
-  <button class="add-btn" id="section-add-btn" onclick="openSectionAdd()">
-    <div class="add-icon">+</div>
-    <span class="add-text" id="section-add-text">добавить</span>
-  </button>
+  <button class="add-btn" onclick="openSectionAdd()"><div class="add-icon">+</div><span class="add-text" id="section-add-text">добавить</span></button>
 </div>
 
-<!-- Add entry modal -->
+<!-- Модал новой записи -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-      <span class="modal-title">новая запись</span>
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span class="modal-title" id="modal-title">новая запись</span>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <label class="form-label">что хочешь записать?</label>
     <textarea class="form-textarea" id="entry-text" placeholder="пиши что угодно..."></textarea>
     <label class="form-label">настроение</label>
-    <div class="mood-picker" id="mood-picker">
-      <div class="mood-btn" onclick="selectMood(this, '🌙')">🌙</div>
-      <div class="mood-btn" onclick="selectMood(this, '☀️')">☀️</div>
-      <div class="mood-btn" onclick="selectMood(this, '😂')">😂</div>
-      <div class="mood-btn" onclick="selectMood(this, '💛')">💛</div>
-      <div class="mood-btn" onclick="selectMood(this, '😔')">😔</div>
-      <div class="mood-btn" onclick="selectMood(this, '🌸')">🌸</div>
-      <div class="mood-btn" onclick="selectMood(this, '🔥')">🔥</div>
-      <div class="mood-btn" onclick="selectMood(this, '✨')">✨</div>
+    <div class="mood-picker">
+      <div class="mood-btn" onclick="selectMood(this,'🌙')">🌙</div>
+      <div class="mood-btn" onclick="selectMood(this,'☀️')">☀️</div>
+      <div class="mood-btn" onclick="selectMood(this,'😂')">😂</div>
+      <div class="mood-btn" onclick="selectMood(this,'💛')">💛</div>
+      <div class="mood-btn" onclick="selectMood(this,'😔')">😔</div>
+      <div class="mood-btn" onclick="selectMood(this,'🌸')">🌸</div>
+      <div class="mood-btn" onclick="selectMood(this,'🔥')">🔥</div>
+      <div class="mood-btn" onclick="selectMood(this,'✨')">✨</div>
     </div>
     <label class="form-label">метка</label>
-    <div class="tag-picker" id="tag-picker">
-      <div class="tag-btn" onclick="selectTag(this, 'хороший день')">хороший день</div>
-      <div class="tag-btn" onclick="selectTag(this, 'грустно')">грустно</div>
-      <div class="tag-btn" onclick="selectTag(this, 'смешно')">смешно</div>
-      <div class="tag-btn" onclick="selectTag(this, 'важно')">важно</div>
-      <div class="tag-btn" onclick="selectTag(this, 'просто так')">просто так</div>
+    <div class="tag-picker">
+      <div class="tag-btn" onclick="selectTag(this,'хороший день')">хороший день</div>
+      <div class="tag-btn" onclick="selectTag(this,'грустно')">грустно</div>
+      <div class="tag-btn" onclick="selectTag(this,'смешно')">смешно</div>
+      <div class="tag-btn" onclick="selectTag(this,'важно')">важно</div>
+      <div class="tag-btn" onclick="selectTag(this,'просто так')">просто так</div>
     </div>
     <label class="form-label">адресовано (необязательно)</label>
     <div class="to-picker">
-      <div class="to-btn" id="to-amina" onclick="selectTo('амине')">
-        <div class="to-name">амине</div>
-        <div class="to-sub">подруга прочитает</div>
-      </div>
-      <div class="to-btn" id="to-private" onclick="selectTo('личное')">
-        <div class="to-name">🔒 личное</div>
-        <div class="to-sub">только для меня</div>
-      </div>
+      <div class="to-btn" id="to-amina" onclick="selectTo('амине')"><div class="to-name">амине</div><div class="to-sub">подруга прочитает</div></div>
+      <div class="to-btn" id="to-private" onclick="selectTo('личное')"><div class="to-name">🔒 личное</div><div class="to-sub">только для меня</div></div>
     </div>
     <label class="form-label">кто пишет?</label>
-    <div class="to-picker" style="margin-bottom:16px;">
-      <div class="to-btn" id="who-farida" onclick="selectWho('фарида')" style="background:var(--farida);">
-        <div class="to-name">фарида</div>
-      </div>
-      <div class="to-btn" id="who-amina" onclick="selectWho('амина')">
-        <div class="to-name">амина</div>
-      </div>
+    <div class="to-picker" style="margin-bottom:4px;">
+      <div class="to-btn" id="who-farida" onclick="selectWho('фарида')" style="background:var(--farida);"><div class="to-name">фарида</div></div>
+      <div class="to-btn" id="who-amina" onclick="selectWho('амина')"><div class="to-name">амина</div></div>
     </div>
-    <button class="save-btn" onclick="saveEntry()">сохранить</button>
+    <button class="save-btn" id="save-btn" onclick="saveEntry()">сохранить</button>
+    <button class="notify-btn" id="notify-btn" style="display:none;" onclick="notifyFriend()">📬 уведомить подругу в telegram</button>
   </div>
 </div>
 
-<!-- Section add modal -->
+<!-- Модал ответа на запись -->
+<div class="modal-overlay" id="reply-modal">
+  <div class="modal">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span class="modal-title">ответить</span>
+      <button class="modal-close" onclick="closeReplyModal()">✕</button>
+    </div>
+    <div id="reply-original" style="background:var(--bg2);border-radius:10px;padding:10px;margin-top:12px;font-size:12px;color:var(--text2);"></div>
+    <label class="form-label">твой ответ</label>
+    <textarea class="form-textarea" id="reply-text" placeholder="напиши ответ..." style="min-height:80px;"></textarea>
+    <label class="form-label">кто отвечает?</label>
+    <div class="to-picker" style="margin-bottom:4px;">
+      <div class="to-btn" id="reply-who-farida" onclick="selectReplyWho('фарида')" style="background:var(--farida);"><div class="to-name">фарида</div></div>
+      <div class="to-btn" id="reply-who-amina" onclick="selectReplyWho('амина')"><div class="to-name">амина</div></div>
+    </div>
+    <button class="save-btn" onclick="saveReply()">сохранить ответ</button>
+  </div>
+</div>
+
+<!-- Модал раздела -->
 <div class="modal-overlay" id="section-modal">
   <div class="modal">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
       <span class="modal-title" id="section-modal-title">добавить</span>
       <button class="modal-close" onclick="closeSectionModal()">✕</button>
     </div>
@@ -272,182 +230,166 @@ body { display: flex; flex-direction: column; max-width: 480px; margin: 0 auto; 
 </div>
 
 <script>
-// ━━━ STATE ━━━
+const DIARY_START = new Date('2019-09-01');
+const BOT_TOKEN = '8591247560:AAEn9XazgCXLFav5uDHT8tS50Vx81k6cXf0';
+const FARIDA_ID = '794607637';
+const AMINA_ID = '823732562';
+
 let currentTab = 'all';
 let currentSection = null;
 let selectedMood = '';
 let selectedTag = '';
 let selectedTo = '';
 let selectedWho = 'фарида';
+let editingId = null;
+let replyingToId = null;
+let replyWho = 'фарида';
+let lastSavedWho = 'фарида';
 
-const MURSIA_PHRASES = [
-  "давно не писали. есть что записать?",
-  "дневник скучает. как вы вообще",
-  "запишите что-нибудь. потом скажете спасибо",
-  "молчание — это тоже запись. но лучше словами",
-  "смотрю на ваши записи. вы хорошие",
+const MURSIA_QUOTES = [
   "пишите. потом будете перечитывать и улыбаться",
   "дневник помнит всё. пишите больше",
-  "сколько всего не записано. жаль",
-  "открыла дневник. хорошо что вы его ведёте",
+  "хорошо что вы его ведёте",
+  "каждая запись — это маленький момент навсегда",
+  "записывайте даже мелочи. они потом самые ценные",
+  "дневник скучает когда вы долго не пишете",
+  "молчание — это тоже запись. но лучше словами",
+  "смотрю на ваши записи. вы хорошие",
+  "каждый день достоин хотя бы одной строчки",
+  "перечитайте старые записи когда грустно. помогает",
 ];
 
 const MURSIA_COMMENTS = {
-  'хороший день': ["тихие дни тоже считаются", "вот и хорошо", "запомни это ощущение", "такие дни редкие. цени"],
-  'грустно': ["эй. я здесь", "бывает. пройдёт", "ничего. завтра другой день", "написала — уже легче"],
-  'смешно': ["классика", "хаха. да", "окей это было норм", "хорошая история"],
-  'важно': ["важное надо записывать. правильно сделала", "запомни это", "хорошо что записала"],
-  'просто так': ["и так тоже можно", "просто так — это тоже повод", "ну и ладно. главное написала"],
-  'default': ["ага", "запомнила", "норм", "читаю", "хорошо что записала", "понятно"]
+  'хороший день': ["тихие дни тоже считаются","вот и хорошо","запомни это ощущение","такие дни редкие. цени"],
+  'грустно': ["эй. я здесь","бывает. пройдёт","ничего. завтра другой день","написала — уже легче"],
+  'смешно': ["классика","хаха. да","окей это было норм","хорошая история"],
+  'важно': ["важное надо записывать","запомни это","хорошо что записала"],
+  'просто так': ["и так тоже можно","просто так — это тоже повод","ну и ладно. главное написала"],
+  'default': ["ага","запомнила","норм","читаю","хорошо что записала"]
 };
 
-// ━━━ STORAGE ━━━
 function loadData() {
-  try {
-    return JSON.parse(localStorage.getItem('diary_data') || '{}');
-  } catch { return {}; }
+  try { return JSON.parse(localStorage.getItem('diary_v3') || '{}'); } catch { return {}; }
 }
-
-function saveData(data) {
-  try { localStorage.setItem('diary_data', JSON.stringify(data)); } catch(e) {}
+function saveData(d) {
+  try { localStorage.setItem('diary_v3', JSON.stringify(d)); } catch(e) {}
 }
-
 function getData() {
   const d = loadData();
-  if (!d.entries) d.entries = getDefaultEntries();
-  if (!d.wishes) d.wishes = [{text: 'встретиться этим летом', who: 'фарида'}, {text: 'посмотреть закат вместе', who: 'амина'}];
-  if (!d.playlist) d.playlist = [{text: 'что-то тёплое и меланхоличное', who: 'фарида'}, {text: 'трек который напоминает о тебе', who: 'амина'}];
-  if (!d.dates) d.dates = [{text: 'день нашего знакомства', who: 'общее'}, {text: 'первая совместная поездка', who: 'общее'}];
+  if (!d.entries) d.entries = [];
+  if (!d.wishes) d.wishes = [];
+  if (!d.playlist) d.playlist = [];
+  if (!d.dates) d.dates = [];
   if (!d.private) d.private = [];
-  if (!d.startDate) d.startDate = new Date(Date.now() - 247 * 86400000).toISOString();
   return d;
 }
 
-function getDefaultEntries() {
-  return [
-    { id: 1, who: 'фарида', text: 'написала амине просто так. она не ответила но я знаю что прочитала', mood: '🌙', tag: 'важно', to: 'амине', date: new Date().toISOString(), reactions: {'🤍': 2, '✨': 1} },
-    { id: 2, who: 'амина', text: 'вспомнила тот случай в кафе. до сих пор смешно', mood: '😂', tag: 'смешно', to: '', date: new Date(Date.now() - 86400000).toISOString(), reactions: {'😂': 3} },
-    { id: 3, who: 'фарида', text: 'скучаю. вот просто так написала', mood: '💛', tag: 'просто так', to: '', date: new Date(Date.now() - 2 * 86400000).toISOString(), reactions: {'🤍': 1} },
-  ];
-}
-
-// ━━━ UI ━━━
-function getMursiaComment() {
-  const el = document.getElementById('mursia-main');
-  el.textContent = MURSIA_PHRASES[Math.floor(Math.random() * MURSIA_PHRASES.length)];
-}
-
 function getDaysCount() {
-  const d = getData();
-  const start = new Date(d.startDate);
-  const diff = Math.floor((Date.now() - start) / 86400000);
-  return diff;
+  return Math.floor((Date.now() - DIARY_START) / 86400000);
 }
 
 function getWeekVibe() {
   const d = getData();
-  const week = d.entries.filter(e => new Date(e.date) > new Date(Date.now() - 7 * 86400000));
+  const week = d.entries.filter(e => new Date(e.date) > new Date(Date.now() - 7*86400000));
   if (!week.length) return '🌸';
-  const moods = week.map(e => e.mood).filter(Boolean);
-  return moods[0] || '🌸';
+  return week[0].mood || '🌸';
 }
 
 function formatDate(iso) {
-  const d = new Date(iso);
-  const now = new Date();
+  const d = new Date(iso), now = new Date();
   const diff = Math.floor((now - d) / 86400000);
   if (diff === 0) return 'сегодня';
   if (diff === 1) return 'вчера';
-  if (diff < 7) return `${diff} дня назад`;
-  return d.toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' });
+  if (diff < 7) return diff + ' дня назад';
+  return d.toLocaleDateString('ru-RU', {day:'numeric',month:'short'});
 }
 
 function getMursiaReaction(tag) {
-  const comments = MURSIA_COMMENTS[tag] || MURSIA_COMMENTS['default'];
-  return comments[Math.floor(Math.random() * comments.length)];
+  const c = MURSIA_COMMENTS[tag] || MURSIA_COMMENTS['default'];
+  return c[Math.floor(Math.random() * c.length)];
+}
+
+function getMursiaQuote() {
+  document.getElementById('mursia-main').textContent = MURSIA_QUOTES[Math.floor(Math.random() * MURSIA_QUOTES.length)];
 }
 
 function renderEntry(entry) {
   const avClass = entry.who === 'фарида' ? 'av-f' : 'av-a';
   const avLetter = entry.who === 'фарида' ? 'Ф' : 'А';
-  const tagHtml = entry.tag ? `<span class="tag ${entry.to === 'личное' ? 'tag-private' : 'tag-normal'}">${entry.tag}</span>` : '';
+  const tagHtml = entry.tag ? `<span class="tag ${entry.to==='личное'?'tag-private':'tag-normal'}">${entry.tag}</span>` : '';
   const toHtml = entry.to && entry.to !== 'личное' ? `<span class="tag tag-to">${entry.to}</span>` : '';
   const mursiaHtml = `<div class="mursia-comment"><span>🐾</span><span>${getMursiaReaction(entry.tag)}</span></div>`;
 
-  const reactEmojis = ['🤍', '😂', '✨', '🥹', '💛'];
+  const reactEmojis = ['🤍','😂','✨','🥹','💛'];
   const reactionsHtml = reactEmojis.map(e => {
     const count = (entry.reactions && entry.reactions[e]) || 0;
-    const active = count > 0 ? 'active' : '';
-    return `<span class="reaction ${active}" onclick="addReaction(${entry.id}, '${e}')">${e}${count > 0 ? ' ' + count : ''}</span>`;
+    return `<span class="reaction ${count>0?'active':''}" onclick="addReaction(${entry.id},'${e}')">${e}${count>0?' '+count:''}</span>`;
   }).join('');
+
+  const repliesHtml = entry.replies && entry.replies.length > 0 ? `
+    <div class="replies">${entry.replies.map(r => `
+      <div class="reply">
+        <div class="reply-who">${r.who}</div>
+        <div class="reply-text">${r.text}</div>
+      </div>`).join('')}
+    </div>` : '';
 
   return `
     <div class="card" id="entry-${entry.id}">
       <div class="card-header">
-        <div class="card-who">
-          <div class="avatar ${avClass}">${avLetter}</div>
-          <span class="card-name">${entry.who}</span>
-        </div>
-        <div class="card-right">
-          <span class="card-mood">${entry.mood || ''}</span>
-          <span class="card-date">${formatDate(entry.date)}</span>
-        </div>
+        <div class="card-who"><div class="avatar ${avClass}">${avLetter}</div><span class="card-name">${entry.who}</span></div>
+        <div class="card-right"><span class="card-mood">${entry.mood||''}</span><span class="card-date">${formatDate(entry.date)}</span></div>
       </div>
       <p class="card-text">${entry.text}</p>
       <div class="card-tags">${toHtml}${tagHtml}</div>
       ${mursiaHtml}
+      ${repliesHtml}
       <div class="reactions">${reactionsHtml}</div>
-    </div>
-  `;
+      <div class="card-actions">
+        <button class="card-action-btn" onclick="openReplyModal(${entry.id})">ответить</button>
+        <button class="card-action-btn" onclick="openEditModal(${entry.id})">изменить</button>
+        <button class="card-action-btn" onclick="deleteEntry(${entry.id})" style="color:#C47A7A;">удалить</button>
+      </div>
+    </div>`;
 }
 
 function renderFeed() {
   const d = getData();
-  let entries = [...d.entries].sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  if (currentTab === 'farida') entries = entries.filter(e => e.who === 'фарида' && e.to !== 'личное');
-  else if (currentTab === 'amina') entries = entries.filter(e => e.who === 'амина');
-  else if (currentTab === 'important') entries = entries.filter(e => e.tag === 'важно');
+  let entries = [...d.entries].sort((a,b) => new Date(b.date)-new Date(a.date));
+  if (currentTab === 'farida') entries = entries.filter(e => e.who==='фарида' && e.to!=='личное');
+  else if (currentTab === 'amina') entries = entries.filter(e => e.who==='амина');
+  else if (currentTab === 'important') entries = entries.filter(e => e.tag==='важно');
   else if (currentTab === 'calendar') { renderCalendar(); return; }
-  else entries = entries.filter(e => e.to !== 'личное');
+  else entries = entries.filter(e => e.to!=='личное');
 
   const feed = document.getElementById('feed');
-  const sectionsGrid = document.getElementById('sections-grid');
-
-  if (entries.length === 0) {
-    feed.innerHTML = `<div class="empty"><div class="empty-icon">📝</div><div class="empty-text">здесь пока пусто.<br>напиши что-нибудь</div></div>`;
-  } else {
-    feed.innerHTML = entries.map(renderEntry).join('');
-  }
-
-  sectionsGrid.style.display = currentTab === 'all' ? 'grid' : 'none';
+  const sg = document.getElementById('sections-grid');
+  feed.innerHTML = entries.length === 0
+    ? `<div class="empty"><div class="empty-icon">📝</div><div class="empty-text">здесь пока пусто.<br>напиши что-нибудь</div></div>`
+    : entries.map(renderEntry).join('');
+  sg.style.display = currentTab==='all' ? 'grid' : 'none';
   updateStats();
 }
 
 function renderCalendar() {
   const d = getData();
-  const feed = document.getElementById('feed');
   const moods = {};
-  d.entries.forEach(e => {
-    const day = new Date(e.date).toDateString();
-    if (e.mood) moods[day] = e.mood;
-  });
-
-  let html = '<div class="mood-cal"><p style="font-size:13px;color:var(--text3);margin-bottom:8px;">настроение последних 28 дней</p><div class="cal-grid">';
-  for (let i = 27; i >= 0; i--) {
-    const d = new Date(Date.now() - i * 86400000);
-    const mood = moods[d.toDateString()] || '';
-    html += `<div class="cal-day ${mood ? 'has-mood' : ''}">${mood || ''}</div>`;
+  d.entries.forEach(e => { const day = new Date(e.date).toDateString(); if (e.mood) moods[day] = e.mood; });
+  let html = '<div class="mood-cal"><p style="font-size:13px;color:var(--text3);margin-bottom:8px;">настроение за 28 дней</p><div class="cal-grid">';
+  for (let i=27;i>=0;i--) {
+    const day = new Date(Date.now()-i*86400000);
+    const mood = moods[day.toDateString()] || '';
+    html += `<div class="cal-day ${mood?'has-mood':''}">${mood}</div>`;
   }
   html += '</div></div>';
-  feed.innerHTML = html;
+  document.getElementById('feed').innerHTML = html;
   document.getElementById('sections-grid').style.display = 'none';
 }
 
 function updateStats() {
   const d = getData();
-  document.getElementById('total-count').textContent = d.entries.filter(e => e.to !== 'личное').length;
-  document.getElementById('letters-count').textContent = d.entries.filter(e => e.to === 'амине').length;
+  document.getElementById('total-count').textContent = d.entries.filter(e=>e.to!=='личное').length;
+  document.getElementById('letters-count').textContent = d.entries.filter(e=>e.to==='амине').length;
   document.getElementById('week-vibe').textContent = getWeekVibe();
   document.getElementById('days-count').textContent = getDaysCount() + ' дней дружбы';
   document.getElementById('wishes-count').textContent = d.wishes.length + ' планов вместе';
@@ -457,176 +399,212 @@ function updateStats() {
 
 function switchTab(tab, el) {
   currentTab = tab;
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
   renderFeed();
 }
 
 function addReaction(id, emoji) {
   const d = getData();
-  const entry = d.entries.find(e => e.id === id);
+  const e = d.entries.find(e=>e.id===id);
+  if (!e) return;
+  if (!e.reactions) e.reactions = {};
+  e.reactions[emoji] = (e.reactions[emoji]||0) + 1;
+  saveData(d); renderFeed();
+}
+
+function deleteEntry(id) {
+  const d = getData();
+  d.entries = d.entries.filter(e=>e.id!==id);
+  saveData(d); renderFeed(); showToast('запись удалена');
+}
+
+// ━━━ MODAL ━━━
+function openModal() {
+  editingId = null;
+  document.getElementById('modal-title').textContent = 'новая запись';
+  document.getElementById('save-btn').textContent = 'сохранить';
+  document.getElementById('notify-btn').style.display = 'none';
+  selectedMood=''; selectedTag=''; selectedTo=''; selectedWho='фарида';
+  document.getElementById('entry-text').value = '';
+  document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('selected'));
+  document.querySelectorAll('.tag-btn').forEach(b=>b.classList.remove('selected'));
+  document.getElementById('to-amina').classList.remove('selected');
+  document.getElementById('to-private').classList.remove('selected');
+  document.getElementById('who-farida').style.background='var(--farida)';
+  document.getElementById('who-farida').classList.add('selected');
+  document.getElementById('who-amina').style.background='var(--card)';
+  document.getElementById('who-amina').classList.remove('selected');
+  document.getElementById('modal').classList.add('open');
+}
+
+function openEditModal(id) {
+  const d = getData();
+  const entry = d.entries.find(e=>e.id===id);
   if (!entry) return;
-  if (!entry.reactions) entry.reactions = {};
-  entry.reactions[emoji] = (entry.reactions[emoji] || 0) + 1;
-  saveData(d);
-  renderFeed();
+  editingId = id;
+  document.getElementById('modal-title').textContent = 'изменить запись';
+  document.getElementById('save-btn').textContent = 'сохранить изменения';
+  document.getElementById('notify-btn').style.display = 'none';
+  document.getElementById('entry-text').value = entry.text;
+  selectedMood = entry.mood||'';
+  selectedTag = entry.tag||'';
+  selectedTo = entry.to||'';
+  selectedWho = entry.who;
+  document.querySelectorAll('.mood-btn').forEach(b=>{ b.classList.remove('selected'); if(b.textContent===selectedMood) b.classList.add('selected'); });
+  document.querySelectorAll('.tag-btn').forEach(b=>{ b.classList.remove('selected'); if(b.textContent===selectedTag) b.classList.add('selected'); });
+  document.getElementById('to-amina').classList.toggle('selected', selectedTo==='амине');
+  document.getElementById('to-private').classList.toggle('selected', selectedTo==='личное');
+  document.getElementById('who-farida').classList.toggle('selected', selectedWho==='фарида');
+  document.getElementById('who-farida').style.background = selectedWho==='фарида'?'var(--farida)':'var(--card)';
+  document.getElementById('who-amina').classList.toggle('selected', selectedWho==='амина');
+  document.getElementById('who-amina').style.background = selectedWho==='амина'?'var(--amina)':'var(--card)';
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+
+function selectMood(el, mood) {
+  document.querySelectorAll('.mood-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected'); selectedMood = mood;
+}
+function selectTag(el, tag) {
+  document.querySelectorAll('.tag-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected'); selectedTag = tag;
+}
+function selectTo(to) {
+  document.getElementById('to-amina').classList.remove('selected');
+  document.getElementById('to-private').classList.remove('selected');
+  if (selectedTo===to) { selectedTo=''; return; }
+  selectedTo = to;
+  if (to==='амине') document.getElementById('to-amina').classList.add('selected');
+  if (to==='личное') document.getElementById('to-private').classList.add('selected');
+}
+function selectWho(who) {
+  selectedWho = who;
+  document.getElementById('who-farida').classList.toggle('selected', who==='фарида');
+  document.getElementById('who-farida').style.background = who==='фарида'?'var(--farida)':'var(--card)';
+  document.getElementById('who-amina').classList.toggle('selected', who==='амина');
+  document.getElementById('who-amina').style.background = who==='амина'?'var(--amina)':'var(--card)';
+}
+
+function saveEntry() {
+  const text = document.getElementById('entry-text').value.trim();
+  if (!text) { showToast('напиши что-нибудь'); return; }
+  const d = getData();
+  if (editingId) {
+    const entry = d.entries.find(e=>e.id===editingId);
+    if (entry) { entry.text=text; entry.mood=selectedMood; entry.tag=selectedTag; entry.to=selectedTo; entry.who=selectedWho; }
+    saveData(d); closeModal(); renderFeed(); showToast('запись обновлена 🐾');
+  } else {
+    const newEntry = { id: Date.now(), who: selectedWho, text, mood: selectedMood, tag: selectedTag, to: selectedTo, date: new Date().toISOString(), reactions: {}, replies: [] };
+    d.entries.unshift(newEntry);
+    saveData(d);
+    lastSavedWho = selectedWho;
+    document.getElementById('save-btn').textContent = 'сохранено ✓';
+    document.getElementById('save-btn').disabled = true;
+    document.getElementById('notify-btn').style.display = 'block';
+    renderFeed();
+    showToast('запись сохранена 🐾');
+  }
+}
+
+function notifyFriend() {
+  const who = lastSavedWho;
+  const friendId = who === 'фарида' ? AMINA_ID : FARIDA_ID;
+  const msg = who === 'фарида' ? 'фарида написала в дневник. зайди посмотри 🐾' : 'амина написала в дневник. зайди посмотри 🐾';
+  if (BOT_TOKEN) {
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ chat_id: friendId, text: msg })
+    }).then(()=>showToast('подруга уведомлена!')).catch(()=>showToast('не удалось уведомить'));
+  } else {
+    showToast('токен не настроен');
+  }
+  closeModal();
+}
+
+// ━━━ REPLY ━━━
+function openReplyModal(id) {
+  replyingToId = id;
+  replyWho = 'фарида';
+  const d = getData();
+  const entry = d.entries.find(e=>e.id===id);
+  document.getElementById('reply-original').textContent = entry ? `"${entry.text}"` : '';
+  document.getElementById('reply-text').value = '';
+  document.getElementById('reply-who-farida').classList.add('selected');
+  document.getElementById('reply-who-farida').style.background = 'var(--farida)';
+  document.getElementById('reply-who-amina').classList.remove('selected');
+  document.getElementById('reply-who-amina').style.background = 'var(--card)';
+  document.getElementById('reply-modal').classList.add('open');
+}
+function closeReplyModal() { document.getElementById('reply-modal').classList.remove('open'); }
+function selectReplyWho(who) {
+  replyWho = who;
+  document.getElementById('reply-who-farida').classList.toggle('selected', who==='фарида');
+  document.getElementById('reply-who-farida').style.background = who==='фарида'?'var(--farida)':'var(--card)';
+  document.getElementById('reply-who-amina').classList.toggle('selected', who==='амина');
+  document.getElementById('reply-who-amina').style.background = who==='амина'?'var(--amina)':'var(--card)';
+}
+function saveReply() {
+  const text = document.getElementById('reply-text').value.trim();
+  if (!text) { showToast('напиши ответ'); return; }
+  const d = getData();
+  const entry = d.entries.find(e=>e.id===replyingToId);
+  if (!entry) return;
+  if (!entry.replies) entry.replies = [];
+  entry.replies.push({ who: replyWho, text, date: new Date().toISOString() });
+  saveData(d); closeReplyModal(); renderFeed(); showToast('ответ добавлен 🐾');
 }
 
 // ━━━ SECTIONS ━━━
 function showSection(name) {
   currentSection = name;
   document.getElementById('main-view').style.display = 'none';
-  const sv = document.getElementById('section-view');
-  sv.style.display = 'flex';
-
-  const titles = { wishes: 'список желаний 🌿', playlist: 'плейлист 🎵', dates: 'наши даты 📅', private: 'моё личное 🔒' };
-  const addTexts = { wishes: 'добавить желание', playlist: 'добавить песню', dates: 'добавить дату', private: 'добавить личную запись' };
-
+  document.getElementById('section-view').style.display = 'flex';
+  const titles = {wishes:'список желаний 🌿',playlist:'плейлист 🎵',dates:'наши даты 📅',private:'моё личное 🔒'};
+  const addTexts = {wishes:'добавить желание',playlist:'добавить песню',dates:'добавить дату',private:'добавить запись'};
   document.getElementById('section-modal-title').textContent = titles[name];
   document.getElementById('section-add-text').textContent = addTexts[name];
-
   renderSection(name);
 }
-
 function renderSection(name) {
   const d = getData();
-  const items = d[name] || [];
-  const content = document.getElementById('section-content');
-
-  if (items.length === 0) {
-    content.innerHTML = '<div class="empty"><div class="empty-icon">✨</div><div class="empty-text">пока пусто</div></div>';
-    return;
-  }
-
-  const icons = { wishes: '🌿', playlist: '🎵', dates: '📅', private: '🔒' };
-  content.innerHTML = items.map((item, i) => `
-    <div class="wish-item">
-      <span class="wish-ico">${icons[name]}</span>
-      <div style="flex:1">
-        <div class="wish-text">${item.text}</div>
-        <div class="wish-who">${item.who || ''}</div>
-      </div>
-    </div>
-  `).join('');
+  const items = d[name]||[];
+  const icons = {wishes:'🌿',playlist:'🎵',dates:'📅',private:'🔒'};
+  document.getElementById('section-content').innerHTML = items.length===0
+    ? '<div class="empty"><div class="empty-icon">✨</div><div class="empty-text">пока пусто</div></div>'
+    : items.map((item,i)=>`<div class="wish-item"><span class="wish-ico">${icons[name]}</span><div style="flex:1"><div class="wish-text">${item.text}</div><div class="wish-who">${item.who||''}</div></div><button onclick="deleteSectionItem('${name}',${i})" style="background:none;border:none;color:#C47A7A;cursor:pointer;font-size:16px;">×</button></div>`).join('');
 }
-
+function deleteSectionItem(name, idx) {
+  const d = getData();
+  d[name].splice(idx,1);
+  saveData(d); renderSection(name); updateStats();
+}
 function hideSection() {
-  currentSection = null;
-  document.getElementById('section-view').style.display = 'none';
-  document.getElementById('main-view').style.display = 'block';
+  currentSection=null;
+  document.getElementById('section-view').style.display='none';
+  document.getElementById('main-view').style.display='block';
   renderFeed();
 }
-
-function openSectionAdd() {
-  document.getElementById('section-modal').classList.add('open');
-  document.getElementById('section-input').value = '';
-  const labels = { wishes: 'что хотите сделать вместе?', playlist: 'какая песня?', dates: 'какая дата и что это?', private: 'личная запись' };
-  document.getElementById('section-input-label').textContent = labels[currentSection] || 'текст';
-}
-
-function closeSectionModal() {
-  document.getElementById('section-modal').classList.remove('open');
-}
-
+function openSectionAdd() { document.getElementById('section-modal').classList.add('open'); document.getElementById('section-input').value=''; }
+function closeSectionModal() { document.getElementById('section-modal').classList.remove('open'); }
 function saveSectionItem() {
   const text = document.getElementById('section-input').value.trim();
   if (!text) return;
   const d = getData();
-  if (!d[currentSection]) d[currentSection] = [];
-  d[currentSection].push({ text, who: selectedWho });
-  saveData(d);
-  closeSectionModal();
-  renderSection(currentSection);
-  updateStats();
-  showToast('добавлено');
-}
-
-// ━━━ MODAL ━━━
-function openModal() {
-  document.getElementById('modal').classList.add('open');
-  selectedMood = '';
-  selectedTag = '';
-  selectedTo = '';
-  selectedWho = 'фарида';
-  document.getElementById('entry-text').value = '';
-  document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected'));
-  document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('selected'));
-  document.getElementById('to-amina').classList.remove('selected');
-  document.getElementById('to-private').classList.remove('selected');
-  document.getElementById('who-farida').classList.add('selected');
-  document.getElementById('who-amina').classList.remove('selected');
-}
-
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-}
-
-function selectMood(el, mood) {
-  document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected');
-  selectedMood = mood;
-}
-
-function selectTag(el, tag) {
-  document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected');
-  selectedTag = tag;
-}
-
-function selectTo(to) {
-  document.getElementById('to-amina').classList.remove('selected');
-  document.getElementById('to-private').classList.remove('selected');
-  if (selectedTo === to) { selectedTo = ''; return; }
-  selectedTo = to;
-  if (to === 'амине') document.getElementById('to-amina').classList.add('selected');
-  if (to === 'личное') document.getElementById('to-private').classList.add('selected');
-}
-
-function selectWho(who) {
-  selectedWho = who;
-  document.getElementById('who-farida').classList.remove('selected');
-  document.getElementById('who-amina').classList.remove('selected');
-  if (who === 'фарида') {
-    document.getElementById('who-farida').style.background = 'var(--farida)';
-    document.getElementById('who-farida').classList.add('selected');
-  } else {
-    document.getElementById('who-amina').style.background = 'var(--amina)';
-    document.getElementById('who-amina').classList.add('selected');
-  }
-}
-
-function saveEntry() {
-  const text = document.getElementById('entry-text').value.trim();
-  if (!text) { showToast('напиши что-нибудь'); return; }
-
-  const d = getData();
-  const newEntry = {
-    id: Date.now(),
-    who: selectedWho,
-    text,
-    mood: selectedMood,
-    tag: selectedTag,
-    to: selectedTo,
-    date: new Date().toISOString(),
-    reactions: {}
-  };
-  d.entries.unshift(newEntry);
-  saveData(d);
-  closeModal();
-  renderFeed();
-  showToast('запись сохранена 🐾');
+  d[currentSection].push({text, who: selectedWho});
+  saveData(d); closeSectionModal(); renderSection(currentSection); updateStats(); showToast('добавлено');
 }
 
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.style.display = 'block';
-  clearTimeout(t._t);
-  t._t = setTimeout(() => t.style.display = 'none', 3000);
+  t.textContent=msg; t.style.display='block';
+  clearTimeout(t._t); t._t=setTimeout(()=>t.style.display='none',3000);
 }
 
 // ━━━ INIT ━━━
-document.getElementById('mursia-main').textContent = MURSIA_PHRASES[Math.floor(Math.random() * MURSIA_PHRASES.length)];
+getMursiaQuote();
 renderFeed();
 </script>
 </body>
